@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import WorkShelf, { type PortfolioProject } from "../components/work-shelf";
 import { CopyEmail, SharePortfolio } from "../components/portfolio-actions";
+import { buildEnquiryHref, serviceEnquiryLabel } from "../lib/enquiry-link.mjs";
 import { siteUrl } from "../lib/site";
 
 const projects: PortfolioProject[] = [
@@ -92,11 +93,13 @@ const experience = [
 ];
 
 const capabilities = [
-  { title: "Product engineering", items: "React · Next.js · TypeScript" },
-  { title: "Backend systems", items: "Python · Django · REST APIs" },
-  { title: "Data", items: "PostgreSQL · MySQL · Redis · SQL" },
-  { title: "Delivery", items: "Docker · Linux · GitHub Actions" },
+  { title: "Product builds", items: "Shape a defined product flow, from a working first version to release." },
+  { title: "Workflow automation", items: "Connect existing tools and remove repetitive manual handoffs." },
+  { title: "Data and reporting", items: "Turn product or operations data into clear, usable reports." },
+  { title: "Monthly engineering", items: "Plan a focused monthly scope for product delivery and maintenance." },
 ];
+
+const enquiryHref = buildEnquiryHref();
 
 export default function PortfolioPage() {
   const personSchema = {
@@ -109,7 +112,7 @@ export default function PortfolioPage() {
       "https://github.com/YashRaJShaRMaCODE",
       "https://www.linkedin.com/in/yash-raj-sharma-4627bb212",
     ],
-    knowsAbout: ["Product engineering", "Backend systems", "Data platforms"],
+    knowsAbout: ["Product engineering", "Workflow automation", "Data reporting", "Backend systems"],
   };
   const projectsSchema = {
     "@type": "ItemList",
@@ -149,7 +152,7 @@ export default function PortfolioPage() {
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="header-contact" href="mailto:yashrajsharma786jmd@gmail.com">
+        <a className="header-contact" href={enquiryHref}>
           Let’s talk <ArrowUpRight aria-hidden="true" size={15} />
         </a>
       </header>
@@ -229,19 +232,23 @@ export default function PortfolioPage() {
       <section aria-labelledby="about-title" className="about-section" id="about">
         <div className="section-wrap about-layout">
           <div>
-            <h2 id="about-title">Good software starts with a clear problem.</h2>
+            <h2 id="about-title">Engineering support built around the work.</h2>
           </div>
           <div className="about-copy">
             <p>
-              I focus on full-stack engineering. I enjoy shaping a problem,
-              designing a dependable system, and polishing the details that make
-              a product easier to use.
+              I work with small teams to turn a defined product or operations problem
+              into dependable software. We agree the scope, timeline, and
+              availability before starting; work can be a focused build or an
+              ongoing monthly partnership.
             </p>
             <div className="capability-grid">
               {capabilities.map((capability) => (
                 <div className="capability" key={capability.title}>
                   <h3>{capability.title}</h3>
                   <p>{capability.items}</p>
+                  <a aria-label={serviceEnquiryLabel(capability.title)} className="capability-enquiry" href={buildEnquiryHref(capability.title)}>
+                    Discuss this service <ArrowUpRight aria-hidden="true" size={14} />
+                  </a>
                 </div>
               ))}
             </div>
@@ -253,7 +260,8 @@ export default function PortfolioPage() {
         <div>
           <p className="eyebrow">Have a good problem?</p>
           <h2>Let’s make something useful.</h2>
-          <a className="email-link" href="mailto:yashrajsharma786jmd@gmail.com">
+          <p className="contact-guidance">A useful first note includes the problem, desired outcome, timing, and tools in use. Please leave out passwords and private customer data.</p>
+          <a className="email-link" href={enquiryHref}>
             yashrajsharma786jmd@gmail.com <ArrowUpRight aria-hidden="true" size={18} />
           </a>
           <CopyEmail email="yashrajsharma786jmd@gmail.com" />

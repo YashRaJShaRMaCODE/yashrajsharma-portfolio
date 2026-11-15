@@ -2,6 +2,8 @@
 
 Personal portfolio for Yash Raj Sharma, focused on shipped products, engineering experience, and a direct contact path.
 
+The commercial path is project-based engineering for teams: scoped product builds, workflow automation, data/reporting work, or an agreed monthly engineering partnership. This is a lead-generation portfolio, not a paid SaaS; scope, availability, pricing, and outcomes are agreed with each client rather than assumed on the site.
+
 **Live portfolio:** [my-portfolio-ten-tau-95.vercel.app](https://my-portfolio-ten-tau-95.vercel.app)
 
 ## Stack

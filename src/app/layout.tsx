@@ -12,29 +12,31 @@ const geist = localFont({
 
 export const metadata: Metadata = {
   metadataBase: siteUrl,
-  title: "Yash Raj Sharma | Full-Stack Developer",
+  title: "Yash Raj Sharma | Product Engineer & Automation",
   description:
-    "Yash Raj Sharma builds useful digital products across product interfaces, backend systems, and data platforms.",
+    "Product engineering, workflow automation, and data reporting for teams building useful digital products.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     url: "/",
     siteName: "Yash Raj Sharma",
-    title: "Yash Raj Sharma | Full-Stack Developer",
+    title: "Yash Raj Sharma | Product Engineer & Automation",
     description:
-      "Useful software across product interfaces, backend systems, and data platforms.",
+      "Product engineering, workflow automation, and data reporting for teams building useful digital products.",
     images: [{ url: "/projects/subwave-dashboard.webp", alt: "A live radio platform built by Yash Raj Sharma" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yash Raj Sharma | Full-Stack Developer",
+    title: "Yash Raj Sharma | Product Engineer & Automation",
     description:
-      "Useful software across product interfaces, backend systems, and data platforms.",
+      "Product engineering, workflow automation, and data reporting for teams building useful digital products.",
     images: ["/projects/subwave-dashboard.webp"],
   },
   keywords: [
     "Yash Raj Sharma",
+    "product engineer",
+    "workflow automation",
     "full-stack developer",
     "Django",
     "Next.js",
