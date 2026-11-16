@@ -103,6 +103,8 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+The optional LeadHub email opt-in is hidden unless `NEXT_PUBLIC_LEADHUB_URL` is set to the verified HTTPS LeadHub origin. The signup sends only the email, consent, source host, and portfolio project key; it never collects client project details. A separate, unchecked related-products option sends only the portfolio project ID after consent. The CSP allowlists only the configured HTTPS origin.
+
 ## Update portfolio content
 
 Edit `src/app/page.tsx` to update selected projects, experience, capabilities, contact links, and résumé path. Replace `public/Yash_Raj_Sharma_Resume.pdf` with the latest résumé when updating it.

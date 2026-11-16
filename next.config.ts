@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
+import { getLeadHubOrigin } from "./src/lib/leadhub-origin.mjs";
 
 const nextConfig: NextConfig = {
+  experimental: {
+    agentUpgrade: "security",
+  },
   turbopack: {
     root: process.cwd(),
   },
@@ -16,11 +20,12 @@ const nextConfig: NextConfig = {
     const previewToolbarFrames = isVercelPreview ? " https://vercel.live" : "";
     const previewToolbarStyles = isVercelPreview ? " https://vercel.live" : "";
     const previewToolbarFonts = isVercelPreview ? " https://vercel.live https://assets.vercel.com" : "";
+    const leadHubOrigin = getLeadHubOrigin(process.env.NEXT_PUBLIC_LEADHUB_URL);
     return [
       {
         source: "/:path*",
         headers: [
-          { key: "Content-Security-Policy", value: `default-src 'self'; script-src 'self' 'unsafe-inline'${devScriptPolicy}${previewToolbarScript}; style-src 'self' 'unsafe-inline'${previewToolbarStyles}; img-src 'self' data: blob:${previewToolbarImages}; font-src 'self'${previewToolbarFonts}; connect-src${devConnectionPolicy}${previewToolbarConnections}; frame-src 'self'${previewToolbarFrames}; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'${upgradeInsecureRequests}` },
+          { key: "Content-Security-Policy", value: `default-src 'self'; script-src 'self' 'unsafe-inline'${devScriptPolicy}${previewToolbarScript}; style-src 'self' 'unsafe-inline'${previewToolbarStyles}; img-src 'self' data: blob:${previewToolbarImages}; font-src 'self'${previewToolbarFonts}; connect-src${devConnectionPolicy}${previewToolbarConnections}${leadHubOrigin ? ` ${leadHubOrigin}` : ""}; frame-src 'self'${previewToolbarFrames}; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'${upgradeInsecureRequests}` },
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
           { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), clipboard-write=(self), web-share=(self)" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },

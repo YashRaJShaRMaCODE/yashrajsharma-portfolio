@@ -10,6 +10,7 @@ import WorkShelf, { type PortfolioProject } from "../components/work-shelf";
 import { CopyEmail, SharePortfolio } from "../components/portfolio-actions";
 import { buildEnquiryHref, serviceEnquiryLabel } from "../lib/enquiry-link.mjs";
 import { siteUrl } from "../lib/site";
+import LeadCapture from "../components/lead-capture";
 
 const projects: PortfolioProject[] = [
   {
@@ -257,6 +258,7 @@ export default function PortfolioPage() {
       </section>
 
       <footer className="section-wrap site-footer" id="contact">
+        <LeadCapture />
         <div>
           <p className="eyebrow">Have a good problem?</p>
           <h2>Let’s make something useful.</h2>
